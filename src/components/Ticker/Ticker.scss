@@ -1,0 +1,63 @@
+.ticker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  @media only screen and (max-width: 540px)  {
+    & {
+      transform: translate(-50%, -50%) rotate(-57deg);
+    }
+  }
+  &-item {
+    min-width: max-content;
+    z-index: 10;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 110%;
+    text-align: center;
+    font-family: 'Grtsk Giga';
+    text-transform: uppercase;
+    border-color: #373737;
+    color: #373737;
+    opacity: 0.1;
+
+    @media only screen and (max-width: 1280px)  {
+      & {
+        font-size: 42px;
+      }
+    }
+
+    @media only screen and (max-width: 540px)  {
+      & {
+        font-size: 28px;
+      }
+    }
+
+    &--one {
+      animation: marquee 10s linear infinite;
+      margin-bottom: 30px;
+    }
+
+    &--two {
+      animation: marqueeRevers 10s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%) rotate(180deg);
+      }
+      100% {
+        transform: translateX(-100%) rotate(180deg);
+      }
+    }
+    @keyframes marqueeRevers {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  }
+}

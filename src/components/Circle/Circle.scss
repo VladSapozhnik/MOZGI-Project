@@ -1,0 +1,24 @@
+.circle {
+  width: 578px;
+  height: 578px;
+  background: #FFCB46;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(38px);
+  @media only screen and (max-width: 1280px)  {
+    & {
+      width: 482px;
+      height: 482px;
+    }
+  }
+  @media only screen and (max-width: 640px)  {
+    & {
+      width: 294px;
+      height: 294px;
+      filter: blur(23.1784px);
+    }
+  }
+}

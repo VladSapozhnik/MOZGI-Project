@@ -1,0 +1,42 @@
+.circle-info {
+  width: 115.16px;
+  height: 113.37px;
+  position: absolute;
+  transition: transform 3.3s;
+  z-index: 2;
+  top: 70%;
+  left: 61%;
+  &:hover {
+    transform: rotate(-360deg);
+  }
+  &__dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background: #000;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  @media only screen and (max-width: 1280px)  {
+    & {
+      top: 64%;
+      left: 61%;
+    }
+  }
+
+  @media only screen and (max-width: 640px)  {
+    & {
+      top: 60%;
+      left: 55%;
+      width: 88.47px;
+      height: 86.95px;
+      svg {
+        width: 88.47px;
+        height: 86.95px;
+      }
+    }
+  }
+}

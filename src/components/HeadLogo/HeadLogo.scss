@@ -1,0 +1,22 @@
+.head {
+  margin: 0 auto;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  &_logo {
+    path {
+      transition: fill 1s;
+    }
+
+    &.black {
+      path {
+        fill: black;
+      }
+
+    }
+  }
+}
