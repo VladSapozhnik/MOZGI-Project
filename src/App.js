@@ -42,6 +42,7 @@ function App() {
 
   return (
     <div className="App" onMouseMove={e => HandlerMouseMove(e)}>
+        {/*what*/}
         <Popup/>
         <HeadLogo/>
         <Lang/>
