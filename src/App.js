@@ -21,17 +21,25 @@ import HeadLogo from "./components/HeadLogo/HeadLogo";
 
 function App() {
     const header = createRef();
+    const preloader = createRef();
+
     const location = useLocation();
+
+
+
     const transition = useTransition(location, {
         from: {
             opacity: 0,
+            delay: 1000,
         },
         enter: {
-            opacity: 1
+            opacity: 1,
+            delay: 1000,
         },
         leave: {
-            opacity: 0
-        }
+            opacity: 0,
+            delay: 1000,
+        },
     });
 
     const routeList = [
@@ -54,10 +62,24 @@ function App() {
     }
 
 
+    function callPreloader () {
+        const preloaderClass = preloader.current.classList;
+
+        preloaderClass.add('preloader--animate');
+
+        if (preloaderClass.contains('preloader--animate')) {
+            setTimeout(() => {
+                preloaderClass.remove('preloader--animate');
+            }, 2000)
+        }
+    }
+
+
     return (
         <div className="App" onMouseMove={e => HandlerMouseMove(e)}>
+            <div className="preloader"></div>
             <Popup/>
-            <HeadLogo/>
+            <HeadLogo callPreloader={callPreloader}/>
             <Lang/>
             <WheelShow/>
             <Ticker/>
@@ -72,8 +94,9 @@ function App() {
             ))
             }
             {/*{routeList.map(item => <Route exact key={item.id} path={item.href} element={<MainTitle ref={header} title={item.title} />} />)}*/}
-            {questionText.map(item => <Question title={item.title} href={item.href} key={item.id}
+            {questionText.map(item => <Question callPreloader={callPreloader} title={item.title} href={item.href} key={item.id}
                                                 className={item.className}/>)}
+            <div ref={preloader} className="preloader"></div>
         </div>
     );
 }

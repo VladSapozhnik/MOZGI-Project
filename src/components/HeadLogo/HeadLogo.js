@@ -1,13 +1,17 @@
 import './HeadLogo.scss'
 import {createRef, useEffect} from "react";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
-function HeadLogo() {
+function HeadLogo({callPreloader}) {
     const path = createRef();
+
     useEffect(()=>{
-        setTimeout(() => {
-            path.current.classList.add('black');
-        }, 1000)
+        if (!path.current.classList.contains('black')) {
+            setTimeout(() => {
+                path.current.classList.add('black');
+            }, 1000)
+        }
     }, [path])
 
     const svg = <svg  className="head_logo" ref={path} width="83" height="46" viewBox="0 0 85 46" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
@@ -16,9 +20,13 @@ function HeadLogo() {
 
     return (
         <div className="head">
-            <Link to="/">{svg}</Link>
+            <Link to="/" onClick={callPreloader}>{svg}</Link>
         </div>
     )
+}
+
+HeadLogo.protoTypes = {
+    callPreloader: PropTypes.func.isRequired,
 }
 
 export default HeadLogo;
