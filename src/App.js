@@ -8,8 +8,6 @@ import {useTransition, animated} from 'react-spring';
 
 import './fonts/stylesheet.scss';
 
-import questionText from './Question.json'
-
 import Circle from "./components/Circle/Circle";
 import Question from "./components/Question/Question";
 import WheelShow from "./components/WheelShow/WheelShow";
@@ -18,13 +16,13 @@ import Popup from "./components/Popup/Popup";
 import Ticker from "./components/Ticker/Ticker";
 import MainTitle from "./components/MainTitle/MainTitle";
 import HeadLogo from "./components/HeadLogo/HeadLogo";
+import {useSelector} from "react-redux";
 
 function App() {
     const header = createRef();
     const preloader = createRef();
-
+    const questionList = useSelector(state => state.question);
     const location = useLocation();
-
 
 
     const transition = useTransition(location, {
@@ -48,7 +46,7 @@ function App() {
             "title": "full-cycle event agency",
             "href": "/",
         },
-        ...questionText
+        ...questionList
     ]
 
     function HandlerMouseMove(e) {
@@ -94,7 +92,7 @@ function App() {
             ))
             }
             {/*{routeList.map(item => <Route exact key={item.id} path={item.href} element={<MainTitle ref={header} title={item.title} />} />)}*/}
-            {questionText.map(item => <Question callPreloader={callPreloader} title={item.title} href={item.href} key={item.id}
+            {questionList.map(item => <Question callPreloader={callPreloader} title={item.title} href={item.href} key={item.id}
                                                 className={item.className}/>)}
             <div ref={preloader} className="preloader"></div>
         </div>

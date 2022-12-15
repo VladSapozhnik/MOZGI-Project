@@ -18,9 +18,9 @@
     text-align: center;
     font-family: 'Grtsk Giga';
     text-transform: uppercase;
-    border-color: #373737;
-    color: #373737;
-    opacity: 0.1;
+    color: rgba(#373737, .1);
+    -webkit-text-stroke: 1px rgba(#373737, .3);
+    -webkit-text-fill-color: transparent;
 
     @media only screen and (max-width: 1280px)  {
       & {

@@ -18,6 +18,7 @@
     transition: opacity .2s, transform .4s;
     width: max-content;
     display: flex;
+    cursor: default;
 
     &.active {
       opacity: 1;

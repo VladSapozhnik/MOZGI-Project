@@ -12,13 +12,17 @@ function Ticker() {
             id: 2,
             text: 'FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY',
             class: 'ticker-item ticker-item--two'
-        }
+        },
     ]
 
     return (
         <>
             <div className="ticker">
-                {ticker.map((item, index) => <div key={item.id} className={item.class}>{item.text}</div>)}
+                {ticker.map((item) => <div key={item.id} className={item.class}>{item.text}</div>)}
+                {/*{ticker.map((item, index, array) =>*/}
+                {/*    <div key={item.id} className={item.class}>*/}
+                {/*        {array.map(span => <span>{span.text}</span>)}*/}
+                {/*    </div>)}*/}
             </div>
         </>
     )
